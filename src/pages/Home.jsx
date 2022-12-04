@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
+import { Container } from '@mui/material'
 import MaterialReactTable from "material-react-table";
 
 export default function Home() {
@@ -8,7 +9,6 @@ export default function Home() {
     await fetch("https://www.melivecode.com/api/users")
       .then((res) => res.json())
       .then((res) => setUsers(res));
-      console.log(users)
   }
 
   useEffect(() => {
@@ -41,5 +41,7 @@ export default function Home() {
     []
   );
 
-  return <MaterialReactTable columns={columns} data={users} />;
+  return (
+      <MaterialReactTable columns={columns} data={users} />
+  )
 }
